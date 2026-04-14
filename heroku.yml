@@ -1,5 +1,34 @@
-build:
-  docker:
-      worker: Dockerfile
-run:
-   worker:   npm start
+services:
+    - type: worker
+    name: cybermaster-md
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+            - key: SESSION_ID
+        value: ""
+        sync: false
+            - key: OWNER_NUMBER
+        value: "263781123304"
+            - key: BOT_NAME
+        value: "CYBERMASTER-MD"
+            - key: BOT_OWNER
+        value: "CYBERMASTER"
+            - key: COMMAND_MODE
+        value: "public"
+            - key: PREFIXES
+        value: "!"
+            - key: TIMEZONE
+        value: "Africa/Harare"
+            - key: PACKNAME
+        value: "CYBERMASTER-MD"
+            - key: MONGO_URL
+        value: ""
+            - key: POSTGRES_URL
+        value: ""
+            - key: MYSQL_URL
+        value: ""
+            - key: DB_URL
+        value: ""
+            - key: REMOVEBG_KEY
+        value: ""
+            - key: PORT
