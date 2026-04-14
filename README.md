@@ -8,7 +8,7 @@
 <p align="center">
   <p align="center">
    <a href="https://github.com/cybermaster04/CYBERMASTER-MD">
-    <img alt="cybermaster-md banner" height="350" src="attachment://2058074897280493">
+    <img alt="cybermaster-md banner" height="350" src="https://i.ibb.co/xK50qBnb/unnamed.jpg">
    </a>
   </p>
 </p>
@@ -31,5 +31,13 @@
     <br>
     <a href="https://deploy-xhypher.pages.dev/" target="_blank">
         <img alt="WEBSITE" src="https://img.shields.io/badge/Get%20Session-100000?style=for-the-badge&logo=rocket&logoColor=white&labelColor=black&color=00FFFF"/>
+    </a>
+</p>
+
+<p align="center">
+    <strong>3. JOIN WHATSAPP CHANNEL</strong>
+  <br>
+    <a href="https://whatsapp.com/channel/0029Vb79NL51CYoZtM5JIn3Q" target="_blank">
+        <img alt="WhatsApp Channel" src="https://img.shields.io/badge/Join%20Channel-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/>
     </a>
 </p>
