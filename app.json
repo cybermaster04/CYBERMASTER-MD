@@ -1,85 +1,53 @@
 {
-  "name": "cybermaster-md",
-  "description": "Zimbabwe's advanced WhatsApp AI Bot built on Node.js + Baileys MD. Speaks fluent Shona, handles commands, AI chat, translation, and Zim context. Engineered for speed, reliability, and local vibes. Developed by @cybermaster04.",
-  "logo": "https://i.ibb.co/xK50qBnb/unnamed.jpg",
-  "keywords": ["CYBERMASTER-MD", "whatsapp-bot", "zim-ai", "shona-bot", "baileys-md", "nodejs"],
-  "success_url": "/",  
+  "name": "CYBERMASTER-MD",
+  "description": "CYBERMASTER-MD, advanced multi-device WhatsApp bot powered by CYBERMASTER TECH",
+  "logo": "https://i.ibb.co/vFJVQYG/CYBERMASTER-TECH.jpg",
+  "keywords": ["whatsapp", "bot", "md", "ai", "cybermaster", "multi-device", "automation"],
   "repository": "https://github.com/cybermaster04/CYBERMASTER-MD",
-  "stack": "heroku-24",
-
+  "stack": "container",
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "scripts": {
+    "start": "node index.js"
+  },
   "env": {
     "SESSION_ID": {
-      "description": "Secure authentication session string used to connect the bot to WhatsApp Web. Get it from your pair site. Required to login without QR scanning.",
-      "required": true,
-      "value": ""
+      "description": "Must begin with 'CYBERMASTER:~'. Get it from https://cybermaster-pair.onrender.com",
+      "value": "",
+      "required": true
     },
-
+    "PREFIX": {
+      "description": "Bot command prefix",
+      "value": ".",
+      "required": false
+    },
     "OWNER_NUMBER": {
-      "description": "Primary administrator WhatsApp number in international format. This number gets full bot control and owner commands.",
-      "required": true,
-      "value": "263781123304"
-    },
-
-    "DATABASE_URL": {
-      "description": "MongoDB, PostgreSQL, or MySQL connection URI for storing user data, logs, and settings. Optional but recommended for production.",
-      "required": false,
-      "value": ""
-    },
-
-    "BOT_NAME": {
-      "description": "Display name of the bot as seen in chats and menus. Customize to match your branding.",
-      "required": false,
-      "value": "CYBERMASTER-MD"
-    },
-
-    "BOT_OWNER": {
-      "description": "Display name of the bot owner or developer. Shows in !menu and bot info.",
-      "required": false,
-      "value": "CYBERMASTER"
-    },
-
-    "PREFIXES": {
-      "description": "Command trigger prefixes separated by commas. Eg: . ! / Use !xmd menu to see commands.",
-      "required": false,
-      "value": "!"
-    },
-
-    "PACKNAME": {
-      "description": "Default sticker pack name used when creating stickers with the bot.",
-      "required": false,
-      "value": "CYBERMASTER-MD"
-    },
-
-    "COMMAND_MODE": {
-      "description": "Use 'public' to allow all users access, or 'private' to restrict usage to owner only.",
-      "required": false,
-      "value": "public"
-    },
-
-    "TIMEZONE": {
-      "description": "System timezone for logs and time-based features. Use Africa/Harare for Zim time.",
-      "required": false,
-      "value": "Africa/Harare"
-    },
-
-    "REMOVEBG_KEY": {
-      "description": "API key from remove.bg for automatic background removal on images.",
-      "required": false,
-      "value": ""
+      "description": "Your WhatsApp number with country code, e.g 2637xxxxxxx",
+      "value": "",
+      "required": true
     }
   },
-
-  "buildpacks": [
-    { "url": "heroku/nodejs" },
-    { "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git" },
-    { "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest" },
-    { "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git" }
-  ],
-
   "formation": {
     "worker": {
       "quantity": 1,
       "size": "basic"
     }
-  }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+    }
+  ]
 }
