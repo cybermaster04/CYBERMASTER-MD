@@ -1,25 +1,15 @@
-FROM node:lts
-
-# Install dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg imagemagick webp && apt-get clean
-
-# Set working directory
-WORKDIR /app
-
-# Copy package files
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install && npm cache clean --force
-
-# Copy application code
-COPY . .
-
-# Expose port
+FROM node:20-bullseye
+USER root
+RUN apt-get update && \
+    apt-get install -y ffmpeg webp git && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
+USER node
+RUN git clone https://github.com/cybermaster04/CYBERMASTER-MD.git /home/node/CYBERMASTER-MD
+WORKDIR /home/node/CYBERMASTER-MD
+RUN chmod -R 777 /home/node/CYBERMASTER-MD/
+RUN yarn install --network-concurrency 1 --ignore-engines
 EXPOSE 3000
-
-# Set environment
-ENV NODE_ENV production
-
-# Run command
-CMD ["npm", "run", "start"]
+ENV NODE_ENV=production
+ENV PORT=3000
+CMD ["npm", "start"]
