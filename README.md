@@ -1,6 +1,6 @@
 <div align="center">
   <a href="#">
-    <img src="http://readme-typing-svg.herokuapp.com?color=00FFFF&center=true&vCenter=true&multiline=false&lines=CYBERMASTER-MD+SHONA+AI+BOT+🇿🇼;POWERED+BY+CYBERMASTER+TECH" alt="">
+    <img src="http://readme-typing-svg.herokuapp.com?color=00FFFF&center=true&vCenter=true&multiline=false&lines=CYBERMASTER-MD+ENGLISH+AI+BOT+🇿🇼;POWERED+BY+CYBERMASTER+TECH" alt="">
   </a>
 </div>
 
