@@ -1,25 +1,33 @@
-FROM node:lts
+FROM node:lts-slim
 
-# Install dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg imagemagick webp && apt-get clean
+# Install system dependencies for media processing
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg \
+    imagemagick \
+    webp \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
 
-# Copy package files
+# Copy package files for optimal layer caching
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install && npm cache clean --force
+# Install production dependencies only
+RUN npm ci --omit=dev && npm cache clean --force
 
 # Copy application code
 COPY . .
 
-# Expose port
+# Use non-root user for security
+USER node
+
+# Expose application port
 EXPOSE 3000
 
-# Set environment
-ENV NODE_ENV production
+# Set production environment
+ENV NODE_ENV=production
 
-# Run command
-CMD ["npm", "run", "start"]
+# Start the bot
+CMD ["npm", "start"]
